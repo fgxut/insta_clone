@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -16,7 +18,7 @@ module Insta
       g.javascripts false
       g.helper false
     end
-   
+
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
 
