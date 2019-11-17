@@ -1,18 +1,21 @@
+# frozen_string_literal: true
+
 class UserSessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
-    if @user = login(params[:email], params[:password])
-      redirect_back_or_to(:users, notice: 'Login successful')
+    @user = login(params[:email], params[:password])
+
+    if @user
+      redirect_back_or_to root_path, success: 'ログインしました'
     else
-      flash.now[:alert] = 'Login failed'
+      flash.now[:alert] = 'ログインに失敗しました'
       render action: 'new'
     end
   end
 
   def destroy
     logout
-    redirect_to(:users, notice: 'Logged out!')
+    redirect_to root_path, success: 'ログアウトしました'
   end
 end

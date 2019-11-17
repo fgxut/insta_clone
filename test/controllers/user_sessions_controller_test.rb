@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserSessionsControllerTest < ActionDispatch::IntegrationTest
@@ -15,5 +17,4 @@ class UserSessionsControllerTest < ActionDispatch::IntegrationTest
     get user_sessions_destroy_url
     assert_response :success
   end
-
 end
