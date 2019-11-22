@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
       redirect_back_or_to root_path, success: 'ログインしました'
     else
       flash.now[:alert] = 'ログインに失敗しました'
-      render action: 'new'
+      render :new
     end
   end
 
