@@ -8,7 +8,7 @@
 #  crypted_password :string(255)
 #  email            :string(255)      not null
 #  salt             :string(255)
-#  username         :string(255)
+#  username         :string(255)      not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

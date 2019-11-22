@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_054251) do
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username"
+    t.string "username", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
