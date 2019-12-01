@@ -41,6 +41,7 @@ gem 'rails-i18n', '~> 5.1'
 gem 'redis-rails'
 gem 'slim-rails'
 gem 'sorcery'
+gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
