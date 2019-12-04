@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: posts
@@ -20,8 +22,10 @@
 
 class Post < ApplicationRecord
   belongs_to :user
+
   mount_uploaders :images, PostImageUploader
   serialize :images, JSON
+
   validates :images, presence: true
   validates :content, presence: true, length: { maximum: 2200 }
 end

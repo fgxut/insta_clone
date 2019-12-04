@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :require_login, only: %i[new create edit update destroy]
 
@@ -45,7 +47,7 @@ class PostsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:post).permit(:content, images: [])
-    end
+  def post_params
+    params.require(:post).permit(:content, images: [])
+  end
 end
