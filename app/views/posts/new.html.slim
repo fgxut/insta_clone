@@ -3,12 +3,4 @@
     .col-md-6.col-12.offset-md-3
       .card
         .card-body
-          = form_with model: @post, local: true do |f|
-            = render 'shared/error_messages', object: @post
-            .form-group
-              = f.label :images
-              = f.file_field :images, multiple: true, class: 'form-control'
-            .form-group
-              = f.label :content
-              = f.text_area :content, class: 'form-control'
-            = f.submit class: 'btn btn-primary btn-raised'
+          = render 'form', post: @post
