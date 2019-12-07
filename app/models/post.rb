@@ -22,7 +22,7 @@
 
 class Post < ApplicationRecord
   belongs_to :user
-  default_scope -> { order(created_at: :desc) }
+  scope :sorted, -> { order(created_at: :desc) }
 
   mount_uploaders :images, PostImageUploader
   serialize :images, JSON
