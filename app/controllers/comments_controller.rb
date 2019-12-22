@@ -11,13 +11,11 @@ class CommentsController < ApplicationController
   def update
     @comment = current_user.comments.find(params[:id])
     @comment.update(comment_params)
-    redirect_to post_comments
   end
 
   def destroy
     @comment = current_user.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_comments
   end
 
   private
