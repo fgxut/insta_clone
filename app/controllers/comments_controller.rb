@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :require_login, only: %i[create edit update destroy]
 
@@ -21,11 +23,12 @@ class CommentsController < ApplicationController
   end
 
   private
-    def comment_params
-      params.require(:comment).permit(:content).merge(post_id: params[:post_id])
-    end
 
-    def comment_update_params
-      params.require(:comment).permit(:content)
-    end
+  def comment_params
+    params.require(:comment).permit(:content).merge(post_id: params[:post_id])
+  end
+
+  def comment_update_params
+    params.require(:comment).permit(:content)
+  end
 end
