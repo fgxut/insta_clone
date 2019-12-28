@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       post: 投稿
+      comment: コメント
     attributes:
       user:
         id: ID
@@ -12,6 +13,8 @@ ja:
         password_confirmation: パスワード確認
       post:
         images: 画像
+        content: 本文
+      comment:
         content: 本文
 
   attributes:
