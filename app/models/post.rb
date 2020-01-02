@@ -32,4 +32,12 @@ class Post < ApplicationRecord
 
   validates :images, presence: true
   validates :content, presence: true, length: { maximum: 2200 }
+
+  def like(user)
+    likes.create(user_id: user.id)
+  end
+
+  def unlike(user)
+    likes.find_by(user_id: user.id).destroy
+  end
 end
