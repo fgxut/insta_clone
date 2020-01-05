@@ -24,7 +24,6 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :like_users, through: :likes, source: :user
 
   scope :sorted, -> { order(created_at: :desc) }
 
@@ -33,16 +32,4 @@ class Post < ApplicationRecord
 
   validates :images, presence: true
   validates :content, presence: true, length: { maximum: 2200 }
-
-  def like(user)
-    likes.create(user_id: user.id)
-  end
-
-  def unlike(user)
-    likes.find_by(user_id: user.id).destroy
-  end
-
-  def like?(user)
-    like_users.include?(user)
-  end
 end
