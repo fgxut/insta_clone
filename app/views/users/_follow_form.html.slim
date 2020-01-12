@@ -1,4 +1,4 @@
-- unless current_user.id == user.id
+- if logged_in? && current_user.id != user.id
   div id="follow_form-#{user.id}"
     - if current_user.following?(user)
       = render 'users/unfollow', user: user

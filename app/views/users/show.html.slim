@@ -8,5 +8,4 @@
           .profile.text-center.mb-3
             = @user.username
           .text-center
-            - if logged_in?
-              = render 'users/follow_form', user: @user
+            = render 'users/follow_form', user: @user
