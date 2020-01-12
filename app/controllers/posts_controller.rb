@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.includes(:user).page(params[:page]).sorted
     end
+    @list_users = User.limit(5).sorted
   end
 
   def show
