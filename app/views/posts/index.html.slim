@@ -1,10 +1,14 @@
 .container
   .row
     .col-md-8.col-12
-      = render @posts
+      - if @posts.present?
+        = render @posts
+      - else
+        .text-center.font-weight-bold
+          | 投稿がありません
       = paginate @posts
     .col-md-4.col-12
-      -if logged_in?
+      - if logged_in?
         .profile-box.mb-3
           = image_tag 'profile-placeholder.png', size: '50x50', class: 'rounded-circle mr-1'
           = current_user.username
@@ -13,11 +17,6 @@
           .card-header
             | ユーザー
           .card-body
-            .user.mb-3
-              = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
-              | ダミー人間
-            .user.mb-3
-              = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
-              | ダミー人間
+            = render @list_users
           .card-footer
-            =link_to 'すべて見る', '#'
+            =link_to 'すべて見る', users_path
