@@ -52,9 +52,22 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: '投稿を削除しました'
   end
 
+  def search
+    @search_params = post_search_params
+    if @search_params.blank?
+      @posts = Post.all.includes(:user).page(params[:page])
+    else
+      @posts = Post.where('content LIKE ?', "%#{@search_params[:content]}%").page(params[:page])
+    end
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:content, images: [])
+  end
+
+  def post_search_params
+    params.fetch(:search, {}).permit(:content)
   end
 end
