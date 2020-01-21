@@ -54,11 +54,11 @@ class PostsController < ApplicationController
 
   def search
     @search_params = post_search_params
-    if @search_params.blank?
-      @posts = Post.all.includes(:user).page(params[:page])
-    else
-      @posts = Post.where('content LIKE ?', "%#{@search_params[:content]}%").page(params[:page])
-    end
+    @posts = if @search_params.blank?
+               Post.all.includes(:user).page(params[:page])
+             else
+               Post.where('content LIKE ?', "%#{@search_params[:content]}%").page(params[:page])
+             end
   end
 
   private
