@@ -53,12 +53,8 @@ class PostsController < ApplicationController
   end
 
   def search
-    @search_params = post_search_params
-    @posts = if @search_params.blank?
-               Post.all.includes(:user).page(params[:page])
-             else
-               Post.where('content LIKE ?', "%#{@search_params[:content]}%").page(params[:page])
-             end
+    @search_form = SearchPostsForm.new(search_post_params)
+    @posts = @search_form.search.includes(:user).page(params[:page])
   end
 
   private
@@ -67,7 +63,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:content, images: [])
   end
 
-  def post_search_params
+  def search_post_params
     params.fetch(:search, {}).permit(:content)
   end
 end
