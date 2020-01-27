@@ -5,9 +5,9 @@ class SearchPostsForm
 
   def search
     if content.blank?
-      Post.all
+      Post.all.includes(:user)
     else
-      Post.where('content LIKE ?', "%#{content}%")
+      Post.where('content LIKE ?', "%#{content}%").includes(:user)
     end
   end
 end
