@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :require_login
-  
+
   def edit
     @user = User.find(current_user.id)
   end
@@ -18,6 +18,6 @@ class AccountsController < ApplicationController
   private
 
   def account_params
-    params.require(:user).permit(:username)
+    params.require(:user).permit(:username, :avatar, :avatar_cache)
   end
 end
