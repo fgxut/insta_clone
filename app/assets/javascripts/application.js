@@ -17,3 +17,18 @@
 //= require bootstrap-material-design/dist/js/bootstrap-material-design.js
 //= require swiper/js/swiper.js
 //= require swiper.js
+
+$(function() {
+  function readURL(input) {
+      if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+  $('#preview').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+      }
+  }
+  $("#avatar_img").change(function(){
+      readURL(this);
+  });
+});
