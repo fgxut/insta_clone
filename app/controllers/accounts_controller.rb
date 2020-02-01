@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AccountsController < BaseController
   def edit
     @user = User.find(current_user.id)
