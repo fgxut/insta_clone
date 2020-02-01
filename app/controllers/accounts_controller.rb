@@ -1,6 +1,4 @@
-class AccountsController < ApplicationController
-  before_action :require_login
-
+class AccountsController < BaseController
   def edit
     @user = User.find(current_user.id)
   end
